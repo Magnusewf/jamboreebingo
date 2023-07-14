@@ -1,6 +1,6 @@
 #### Make basic bingo table i html format ####
 
-f = open("tools/output/bingo-table.html", "w")
+f = open("build/bingo-table.html", "w")
 
 # Add ccs style to the file:
 f.write("""
@@ -16,6 +16,7 @@ table, th, td {
   color: White;
   text-decoration: line-through;
 }
+        
 </style>
         
 """)

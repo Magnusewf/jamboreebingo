@@ -2,6 +2,16 @@
 
 f = open("build/bingo-table.html", "w")
 
+# Add html header to the file:
+f.write("""
+<!doctype html>
+<html>
+<head><title>Jamboree Bingo</title></head>
+<body>
+<h1 class = "title">Jamboree Bingo</h1>
+</body>        
+""")
+
 # Add ccs style to the file:
 f.write("""
 <style>
@@ -43,6 +53,14 @@ for x in range(5):
       f.write("</td>\n")
     f.write("</tr>\n")
 f.write("</table>\n")
+
+
+# Add ccs style to the file:
+f.write("""
+<footer>
+</footer>
+</html>
+""")
 
 # Close the file:
 f.close()

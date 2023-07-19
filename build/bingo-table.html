@@ -20,56 +20,66 @@ table, th, td {
   color: White;
   text-decoration: line-through;
 }
+
         
 </style>
         
 
 <script>
-function QuestionOK(question){
-  question.classList.toggle("completed", true)
+let completedTASKS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]      
+function QuestionOK(question,num){
+  if (completedTASKS[num]==0){
+    question.classList.toggle("completed", true);
+    completedTASKS[num]=1;
+  }
+  else{
+    question.classList.toggle("completed", false);
+    completedTASKS[num]=0;
+  }
 }
-</script>        
         
+</script>     
+           
 <table>
 
 <tr>
-<td id="0,0" onclick="QuestionOK(this);">task 1</td>
-<td id="0,1" onclick="QuestionOK(this);">Talk to people from 5 diffrent countries</td>
-<td id="0,2" onclick="QuestionOK(this);">Learn 5 korean words and use them</td>
-<td id="0,3" onclick="QuestionOK(this);">task 4</td>
-<td id="0,4" onclick="QuestionOK(this);">task 5</td>
+<td id="0,0" onclick="QuestionOK(this ,0);">task 1</td>
+<td id="0,1" onclick="QuestionOK(this ,1);">Talk to people from 5 diffrent countries</td>
+<td id="0,2" onclick="QuestionOK(this ,2);">Learn 5 korean words and use them</td>
+<td id="0,3" onclick="QuestionOK(this ,3);">task 4</td>
+<td id="0,4" onclick="QuestionOK(this ,4);">task 5</td>
 </tr>
 
 <tr>
-<td id="1,0" onclick="QuestionOK(this);">Tie your self to somone you dont know for half an hour</td>
-<td id="1,1" onclick="QuestionOK(this);">Learn 5 new facts about korea</td>
-<td id="1,2" onclick="QuestionOK(this);">task 8</td>
-<td id="1,3" onclick="QuestionOK(this);">Learn a cool fact about scouting in other countries</td>
-<td id="1,4" onclick="QuestionOK(this);">Join somones bondfire  </td>
+<td id="1,0" onclick="QuestionOK(this ,5);">Tie your self to somone you dont know for half an hour</td>
+<td id="1,1" onclick="QuestionOK(this ,6);">Learn 5 new facts about korea</td>
+<td id="1,2" onclick="QuestionOK(this ,7);">task 8</td>
+<td id="1,3" onclick="QuestionOK(this ,8);">Learn a cool fact about scouting in other countries</td>
+<td id="1,4" onclick="QuestionOK(this ,9);">Join somones bondfire  </td>
 </tr>
 
 <tr>
-<td id="2,0" onclick="QuestionOK(this);">task 11</td>
-<td id="2,1" onclick="QuestionOK(this);">task 12</td>
-<td id="2,2" onclick="QuestionOK(this);">Get 3 more to do the bingo</td>
-<td id="2,3" onclick="QuestionOK(this);">Invite somone to your bondfire</td>
-<td id="2,4" onclick="QuestionOK(this);">task 15</td>
+<td id="2,0" onclick="QuestionOK(this ,10);">task 11</td>
+<td id="2,1" onclick="QuestionOK(this ,11);">task 12</td>
+<td id="2,2" onclick="QuestionOK(this ,12);">Get 3 more to do the bingo</td>
+<td id="2,3" onclick="QuestionOK(this ,13);">Invite somone to your bondfire</td>
+<td id="2,4" onclick="QuestionOK(this ,14);">task 15</td>
 </tr>
 
 <tr>
-<td id="3,0" onclick="QuestionOK(this);">Make a new friend</td>
-<td id="3,1" onclick="QuestionOK(this);">task 17</td>
-<td id="3,2" onclick="QuestionOK(this);">Telll somone a joke </td>
-<td id="3,3" onclick="QuestionOK(this);">task 19</td>
-<td id="3,4" onclick="QuestionOK(this);">task 20</td>
+<td id="3,0" onclick="QuestionOK(this ,15);">Make a new friend</td>
+<td id="3,1" onclick="QuestionOK(this ,16);">task 17</td>
+<td id="3,2" onclick="QuestionOK(this ,17);">Telll somone a joke </td>
+<td id="3,3" onclick="QuestionOK(this ,18);">task 19</td>
+<td id="3,4" onclick="QuestionOK(this ,19);">task 20</td>
 </tr>
 
 <tr>
-<td id="4,0" onclick="QuestionOK(this);">Play a koran game</td>
-<td id="4,1" onclick="QuestionOK(this);">Get 10 singatures on your scarf</td>
-<td id="4,2" onclick="QuestionOK(this);">task 23</td>
-<td id="4,3" onclick="QuestionOK(this);">Eat a korean dish</td>
-<td id="4,4" onclick="QuestionOK(this);">Play a game with somone you dont know</td>
+<td id="4,0" onclick="QuestionOK(this ,20);">Play a koran game</td>
+<td id="4,1" onclick="QuestionOK(this ,21);">Get 10 singatures on your scarf</td>
+<td id="4,2" onclick="QuestionOK(this ,22);">task 23</td>
+<td id="4,3" onclick="QuestionOK(this ,23);">Eat a korean dish</td>
+<td id="4,4" onclick="QuestionOK(this ,24);">Play a game with somone you dont know</td>
 </tr>
 </table>
 

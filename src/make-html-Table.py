@@ -32,19 +32,33 @@ table, th, td {
   color: White;
   text-decoration: line-through;
 }
+
         
 </style>
         
 """)
-
+completedTASKSarray="0"
+for x in range(24):
+   completedTASKSarray+=",0"
 # Add javascript to the file:
 f.write("""
 <script>
-function QuestionOK(question){
-  question.classList.toggle("completed", true)
+let completedTASKS = [""")
+f.write(completedTASKSarray)
+f.write("""]      
+function QuestionOK(question,num){
+  if (completedTASKS[num]==0){
+    question.classList.toggle("completed", true);
+    completedTASKS[num]=1;
+  }
+  else{
+    question.classList.toggle("completed", false);
+    completedTASKS[num]=0;
+  }
 }
-</script>        
         
+</script>     
+           
 """)
 
 # Skrver tabellen:
@@ -53,7 +67,7 @@ for x in range(5):
     f.write("\n<tr>\n")
     for y in range(5):
       f.write(f"<td id=\"{x},{y}\" ")
-      f.write("onclick=\"QuestionOK(this);\"")
+      f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\"")
       f.write(">")
       f.write(tasks[x*5+y])
       f.write("</td>\n")

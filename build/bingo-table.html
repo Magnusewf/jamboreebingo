@@ -1,5 +1,6 @@
 
 <!doctype html>
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        
 <html>
@@ -26,6 +27,27 @@ table, th, td {
         
 
 <script>
+function setCookie(cname, cvalue, exdays) {
+       const d = new Date();
+       d.setTime(d.getTime() + (exdays*24*60*60*1000));
+       let expires = "expires="+ d.toUTCString();
+       document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+     }
+function getCookie(cname) {
+       let name = cname + "=";
+       let decodedCookie = decodeURIComponent(document.cookie);
+       let ca = decodedCookie.split(';');
+       for(let i = 0; i <ca.length; i++) {
+         let c = ca[i];
+         while (c.charAt(0) == ' ') {
+           c = c.substring(1);
+         }
+         if (c.indexOf(name) == 0) {
+           return c.substring(name.length, c.length);
+         }
+       }
+       return"";
+}
 let completedTASKS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]      
 function QuestionOK(question,num){
   if (completedTASKS[num]==0){
@@ -37,6 +59,16 @@ function QuestionOK(question,num){
     completedTASKS[num]=0;
   }
 }
+
+if (document.cookie != "") {
+  alert("Cookie exist ");
+  alert("Cookie is " + document.cookie);
+ }
+else {
+  alert("Cookie not exist");
+  setCookie("completedTASKS", completedTASKS, 400)
+}
+
         
 </script>     
            

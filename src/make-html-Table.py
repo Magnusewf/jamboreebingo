@@ -68,8 +68,6 @@ function getCookie(cname) {
        }
        return"";
 }
-
-
 if (getCookie("completedTASK") != "") {
   alert("Cookie exist ");
   alert("Cookie is " + getCookie("completedTASK"));
@@ -126,7 +124,6 @@ const style_completed={
   "text-decoration": "line-through"
  }
 
-        
 for (var i = 0; i < 24;i++){
   if (completedTASKS[i]==1){
     Object.assign(document.getElementById("q"+i).style,style_completed);

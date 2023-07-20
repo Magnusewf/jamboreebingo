@@ -7,8 +7,7 @@ f.close()
 f = open("build/bingo-table.html", "w")
 
 # Add html header to the file:
-f.write("""
-<!doctype html>
+f.write("""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        
 <html>
@@ -25,17 +24,13 @@ table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
-}
-        
+}       
 .completed {
   background-color: Green;
   color: White;
   text-decoration: line-through;
 }
-
-        
-</style>
-        
+</style>       
 """)
 
 completedTASKSarray="0"
@@ -44,9 +39,8 @@ for x in range(24):
 
 # Add javascript to the file:
 f.write("""        
-
 <script>
-
+// #### Basic cookie functions: ####
 function setCookie(cname, cvalue, exdays) {
        const d = new Date();
        d.setTime(d.getTime() + (exdays*24*60*60*1000));
@@ -68,6 +62,8 @@ function getCookie(cname) {
        }
        return"";
 }
+
+// #### Check if cookie exist, if not create it: ####                
 if (getCookie("completedTASK") != "") {
   alert("Cookie exist ");
   alert("Cookie is " + getCookie("completedTASK"));
@@ -76,13 +72,12 @@ if (getCookie("completedTASK") != "") {
 else {
   alert("Cookie not exist");
   var completedTASKS = [""")
-
 f.write(completedTASKSarray)
 f.write("""]; 
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }        
         
-    
+// #### Function to toggle completed tasks: ####    
 function QuestionOK(question,num){
   if (completedTASKS[num]==0){
     question.classList.toggle("completed", true);
@@ -94,7 +89,15 @@ function QuestionOK(question,num){
   }
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }
-        
+
+// #### Function to load completed tasks - called later: ####        
+function loadCompletedTasks(){
+  for (var i = 0; i < 24;i++){
+    if (completedTASKS[i]==1){    
+      document.getElementById("q"+i).classList.toggle("completed");
+    }
+  } 
+}        
 
 </script>    
            
@@ -118,20 +121,9 @@ f.write("</table>\n")
 f.write("""
         
 <script>
-const style_completed={
-  "background-color": "Green",
-  "color": "White",
-  "text-decoration": "line-through"
- }
-
-for (var i = 0; i < 24;i++){
-  if (completedTASKS[i]==1){
-    Object.assign(document.getElementById("q"+i).style,style_completed);
-  }
-} 
+loadCompletedTasks();
 </script>
-        
-      
+              
 <footer>
 </footer>
 </html>

@@ -37,11 +37,14 @@ table, th, td {
 </style>
         
 """)
+
 completedTASKSarray="0"
 for x in range(24):
    completedTASKSarray+=",0"
+
 # Add javascript to the file:
-f.write("""
+f.write("""        
+
 <script>
 function setCookie(cname, cvalue, exdays) {
        const d = new Date();
@@ -64,10 +67,20 @@ function getCookie(cname) {
        }
        return"";
 }
-        
-let completedTASKS = [""")
+if (getCookie("completedTASK") != "") {
+  alert("Cookie exist ");
+  alert("Cookie is " + getCookie("completedTASK"));
+  var completedTASKS = JSON.parse(getCookie("completedTASK"));
+ }
+else {
+  alert("Cookie not exist");
+  var completedTASKS = [""")
 f.write(completedTASKSarray)
-f.write("""]      
+f.write("""]; 
+  setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
+}        
+        
+    
 function QuestionOK(question,num){
   if (completedTASKS[num]==0){
     question.classList.toggle("completed", true);
@@ -77,18 +90,11 @@ function QuestionOK(question,num){
     question.classList.toggle("completed", false);
     completedTASKS[num]=0;
   }
+  setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }
         
-if (document.cookie != "") {
-  alert("Cookie exist ");
-  alert("Cookie is " + document.cookie);
- }
-else {
-  alert("Cookie not exist");
-  setCookie("completedTASKS", completedTASKS, 400)
-}
-        
-</script>     
+
+</script>    
            
 """)
 
@@ -97,7 +103,7 @@ f.write("<table>\n")
 for x in range(5):
     f.write("\n<tr>\n")
     for y in range(5):
-      f.write(f"<td id=\"{x},{y}\" ")
+      f.write(f"<td id=\"q{x*5+y}\" ")
       f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\"")
       f.write(">")
       f.write(tasks[x*5+y])
@@ -108,6 +114,21 @@ f.write("</table>\n")
 
 # Add ccs style to the file:
 f.write("""
+        
+<script>
+const style_completed={
+  "background-color": "Green",
+  "color": "White",
+  "text-decoration": "line-through"
+ }
+for (var i = 0; i < 24;i++){
+  if (completedTASKS[i]==1){
+    Object.assign(document.getElementById("q"+i).style,style_completed);
+  }
+} 
+</script>
+        
+      
 <footer>
 </footer>
 </html>

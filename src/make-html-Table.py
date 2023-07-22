@@ -20,19 +20,55 @@ f.write("""<!doctype html>
 # Add ccs style to the file:
 f.write("""
 <style>
+  .content {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  .content .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: rgb(248, 233, 210);
+    color: black;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -60px;
+  }
+  .content:hover .tooltiptext {
+    visibility: visible;
+  }
+</style>
+<style>
+h1{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.716)
+}
+body {
+  background: beige;
+}
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
 }       
 .completed {
-  background-color: Green;
-  color: White;
+  background-color: rgb(67, 105, 67);
+  color: beige;
   text-decoration: line-through;
 }
 
 table {
-  width: min(100%, 800px);;
+  width: min(90%, 600px);
+  table-layout: fixed;
+  margin-left: auto; 
+  margin-right: auto;
 }
 td .content {
   text-align: center;
@@ -40,7 +76,7 @@ td .content {
   aspect-ratio: 1 / 1 ;
   
 }  
-</style>      
+</style>       
 """)
 
 completedTASKSarray="0"
@@ -115,10 +151,11 @@ f.write("<table>\n")
 for x in range(5):
     f.write("\n<tr>\n")
     for y in range(5):
-      f.write(f"<td id=\"q{x*5+y}\" width=\"20%\"")
+      f.write(f"<td id=\"q{x*5+y}\" ")
       f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\"")
       f.write("><div class=\"content\">")
-      f.write(tasks[x*5+y])
+      f.write(f"Task {x*5+y+1}")
+      f.write(f"<span class=\"tooltiptext\">{tasks[x*5+y]}</span>")
       f.write("</div></td>\n")
     f.write("</tr>\n")
 f.write("</table>\n")

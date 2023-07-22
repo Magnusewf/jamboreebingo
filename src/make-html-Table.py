@@ -30,7 +30,17 @@ table, th, td {
   color: White;
   text-decoration: line-through;
 }
-</style>       
+
+table {
+  width: min(100%, 800px);;
+}
+td .content {
+  text-align: center;
+  
+  aspect-ratio: 1 / 1 ;
+  
+}  
+</style>      
 """)
 
 completedTASKSarray="0"
@@ -65,12 +75,9 @@ function getCookie(cname) {
 
 // #### Check if cookie exist, if not create it: ####                
 if (getCookie("completedTASK") != "") {
-  alert("Cookie exist ");
-  alert("Cookie is " + getCookie("completedTASK"));
   var completedTASKS = JSON.parse(getCookie("completedTASK"));
  }
 else {
-  alert("Cookie not exist");
   var completedTASKS = [""")
 f.write(completedTASKSarray)
 f.write("""]; 
@@ -92,7 +99,7 @@ function QuestionOK(question,num){
 
 // #### Function to load completed tasks - called later: ####        
 function loadCompletedTasks(){
-  for (var i = 0; i < 24;i++){
+  for (var i = 0; i < 25;i++){
     if (completedTASKS[i]==1){    
       document.getElementById("q"+i).classList.toggle("completed");
     }
@@ -108,11 +115,11 @@ f.write("<table>\n")
 for x in range(5):
     f.write("\n<tr>\n")
     for y in range(5):
-      f.write(f"<td id=\"q{x*5+y}\" ")
+      f.write(f"<td id=\"q{x*5+y}\" width=\"20%\"")
       f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\"")
-      f.write(">")
+      f.write("><div class=\"content\">")
       f.write(tasks[x*5+y])
-      f.write("</td>\n")
+      f.write("</div></td>\n")
     f.write("</tr>\n")
 f.write("</table>\n")
 

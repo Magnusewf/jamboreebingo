@@ -18,7 +18,17 @@ table, th, td {
   color: White;
   text-decoration: line-through;
 }
-</style>       
+
+table {
+  width: min(100%, 800px);;
+}
+td .content {
+  text-align: center;
+  
+  aspect-ratio: 1 / 1 ;
+  
+}  
+</style>      
         
 <script>
 // #### Basic cookie functions: ####
@@ -46,12 +56,9 @@ function getCookie(cname) {
 
 // #### Check if cookie exist, if not create it: ####                
 if (getCookie("completedTASK") != "") {
-  alert("Cookie exist ");
-  alert("Cookie is " + getCookie("completedTASK"));
   var completedTASKS = JSON.parse(getCookie("completedTASK"));
  }
 else {
-  alert("Cookie not exist");
   var completedTASKS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; 
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }        
@@ -68,9 +75,10 @@ function QuestionOK(question,num){
   }
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }
-        
+
+// #### Function to load completed tasks - called later: ####        
 function loadCompletedTasks(){
-  for (var i = 0; i < 24;i++){
+  for (var i = 0; i < 25;i++){
     if (completedTASKS[i]==1){    
       document.getElementById("q"+i).classList.toggle("completed");
     }
@@ -82,43 +90,43 @@ function loadCompletedTasks(){
 <table>
 
 <tr>
-<td id="q0" onclick="QuestionOK(this ,0);">task 1</td>
-<td id="q1" onclick="QuestionOK(this ,1);">Talk to people from 5 diffrent countries</td>
-<td id="q2" onclick="QuestionOK(this ,2);">Learn 5 korean words and use them</td>
-<td id="q3" onclick="QuestionOK(this ,3);">task 4</td>
-<td id="q4" onclick="QuestionOK(this ,4);">task 5</td>
+<td id="q0" width="20%"onclick="QuestionOK(this ,0);"><div class="content">task 1</div></td>
+<td id="q1" width="20%"onclick="QuestionOK(this ,1);"><div class="content">Talk to people from 5 diffrent countries</div></td>
+<td id="q2" width="20%"onclick="QuestionOK(this ,2);"><div class="content">Learn 5 korean words and use them</div></td>
+<td id="q3" width="20%"onclick="QuestionOK(this ,3);"><div class="content">task 4</div></td>
+<td id="q4" width="20%"onclick="QuestionOK(this ,4);"><div class="content">task 5</div></td>
 </tr>
 
 <tr>
-<td id="q5" onclick="QuestionOK(this ,5);">Tie your self to somone you dont know for half an hour</td>
-<td id="q6" onclick="QuestionOK(this ,6);">Learn 5 new facts about korea</td>
-<td id="q7" onclick="QuestionOK(this ,7);">task 8</td>
-<td id="q8" onclick="QuestionOK(this ,8);">Learn a cool fact about scouting in other countries</td>
-<td id="q9" onclick="QuestionOK(this ,9);">Join somones bondfire  </td>
+<td id="q5" width="20%"onclick="QuestionOK(this ,5);"><div class="content">Tie your self to somone you dont know for half an hour</div></td>
+<td id="q6" width="20%"onclick="QuestionOK(this ,6);"><div class="content">Learn 5 new facts about korea</div></td>
+<td id="q7" width="20%"onclick="QuestionOK(this ,7);"><div class="content">task 8</div></td>
+<td id="q8" width="20%"onclick="QuestionOK(this ,8);"><div class="content">Learn a cool fact about scouting in other countries</div></td>
+<td id="q9" width="20%"onclick="QuestionOK(this ,9);"><div class="content">Join somones bondfire  </div></td>
 </tr>
 
 <tr>
-<td id="q10" onclick="QuestionOK(this ,10);">task 11</td>
-<td id="q11" onclick="QuestionOK(this ,11);">task 12</td>
-<td id="q12" onclick="QuestionOK(this ,12);">Get 3 more to do the bingo</td>
-<td id="q13" onclick="QuestionOK(this ,13);">Invite somone to your bondfire</td>
-<td id="q14" onclick="QuestionOK(this ,14);">task 15</td>
+<td id="q10" width="20%"onclick="QuestionOK(this ,10);"><div class="content">task 11</div></td>
+<td id="q11" width="20%"onclick="QuestionOK(this ,11);"><div class="content">task 12</div></td>
+<td id="q12" width="20%"onclick="QuestionOK(this ,12);"><div class="content">Get 3 more to do the bingo</div></td>
+<td id="q13" width="20%"onclick="QuestionOK(this ,13);"><div class="content">Invite somone to your bondfire</div></td>
+<td id="q14" width="20%"onclick="QuestionOK(this ,14);"><div class="content">task 15</div></td>
 </tr>
 
 <tr>
-<td id="q15" onclick="QuestionOK(this ,15);">Make a new friend</td>
-<td id="q16" onclick="QuestionOK(this ,16);">task 17</td>
-<td id="q17" onclick="QuestionOK(this ,17);">Telll somone a joke </td>
-<td id="q18" onclick="QuestionOK(this ,18);">task 19</td>
-<td id="q19" onclick="QuestionOK(this ,19);">task 20</td>
+<td id="q15" width="20%"onclick="QuestionOK(this ,15);"><div class="content">Make a new friend</div></td>
+<td id="q16" width="20%"onclick="QuestionOK(this ,16);"><div class="content">task 17</div></td>
+<td id="q17" width="20%"onclick="QuestionOK(this ,17);"><div class="content">Telll somone a joke </div></td>
+<td id="q18" width="20%"onclick="QuestionOK(this ,18);"><div class="content">task 19</div></td>
+<td id="q19" width="20%"onclick="QuestionOK(this ,19);"><div class="content">task 20</div></td>
 </tr>
 
 <tr>
-<td id="q20" onclick="QuestionOK(this ,20);">Play a koran game</td>
-<td id="q21" onclick="QuestionOK(this ,21);">Get 10 singatures on your scarf</td>
-<td id="q22" onclick="QuestionOK(this ,22);">task 23</td>
-<td id="q23" onclick="QuestionOK(this ,23);">Eat a korean dish</td>
-<td id="q24" onclick="QuestionOK(this ,24);">Play a game with somone you dont know</td>
+<td id="q20" width="20%"onclick="QuestionOK(this ,20);"><div class="content">Play a koran game</div></td>
+<td id="q21" width="20%"onclick="QuestionOK(this ,21);"><div class="content">Get 10 singatures on your scarf</div></td>
+<td id="q22" width="20%"onclick="QuestionOK(this ,22);"><div class="content">task 23</div></td>
+<td id="q23" width="20%"onclick="QuestionOK(this ,23);"><div class="content">Eat a korean dish</div></td>
+<td id="q24" width="20%"onclick="QuestionOK(this ,24);"><div class="content">Play a game with somone you dont know</div></td>
 </tr>
 </table>
 

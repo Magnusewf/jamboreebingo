@@ -89,7 +89,7 @@ function toggleTasks(no){
 
 // #### Function to load completed tasks - called later: ####        
 function loadCompletedTasks(){
-  for (var i = 0; i < 25;i++){
+  for (var i = 0; i < 16;i++){
     if (completedTASKS[i]==1){    
       document.getElementById("q"+i).classList.toggle("completed");
     }
@@ -119,39 +119,27 @@ function loadCompletedTasks(){
 <td id="q1" onclick="QuestionOK(this ,1);"><div class="content">2: Talk to people from 5 diffrent countries</div></td>
 <td id="q2" onclick="QuestionOK(this ,2);"><div class="content">3: Learn 5 korean words and use them</div></td>
 <td id="q3" onclick="QuestionOK(this ,3);"><div class="content">4: task 4</div></td>
-<td id="q4" onclick="QuestionOK(this ,4);"><div class="content">5: task 5</div></td>
 </tr>
 
 <tr>
+<td id="q4" onclick="QuestionOK(this ,4);"><div class="content">5: task 5</div></td>
 <td id="q5" onclick="QuestionOK(this ,5);"><div class="content">6: Tie your self to somone you dont know for half an hour</div></td>
 <td id="q6" onclick="QuestionOK(this ,6);"><div class="content">7: Learn 5 new facts about korea</div></td>
 <td id="q7" onclick="QuestionOK(this ,7);"><div class="content">8: task 8</div></td>
-<td id="q8" onclick="QuestionOK(this ,8);"><div class="content">9: Learn a cool fact about scouting in other countries</div></td>
-<td id="q9" onclick="QuestionOK(this ,9);"><div class="content">10: Join somones bondfire  </div></td>
 </tr>
 
 <tr>
+<td id="q8" onclick="QuestionOK(this ,8);"><div class="content">9: Learn a cool fact about scouting in other countries</div></td>
+<td id="q9" onclick="QuestionOK(this ,9);"><div class="content">10: Join somones bondfire  </div></td>
 <td id="q10" onclick="QuestionOK(this ,10);"><div class="content">11: task 11</div></td>
 <td id="q11" onclick="QuestionOK(this ,11);"><div class="content">12: task 12</div></td>
+</tr>
+
+<tr>
 <td id="q12" onclick="QuestionOK(this ,12);"><div class="content">13: Get 3 more to do the bingo</div></td>
 <td id="q13" onclick="QuestionOK(this ,13);"><div class="content">14: Invite somone to your bondfire</div></td>
 <td id="q14" onclick="QuestionOK(this ,14);"><div class="content">15: task 15</div></td>
-</tr>
-
-<tr>
 <td id="q15" onclick="QuestionOK(this ,15);"><div class="content">16: Make a new friend</div></td>
-<td id="q16" onclick="QuestionOK(this ,16);"><div class="content">17: task 17</div></td>
-<td id="q17" onclick="QuestionOK(this ,17);"><div class="content">18: Telll somone a joke </div></td>
-<td id="q18" onclick="QuestionOK(this ,18);"><div class="content">19: task 19</div></td>
-<td id="q19" onclick="QuestionOK(this ,19);"><div class="content">20: task 20</div></td>
-</tr>
-
-<tr>
-<td id="q20" onclick="QuestionOK(this ,20);"><div class="content">21: Play a koran game</div></td>
-<td id="q21" onclick="QuestionOK(this ,21);"><div class="content">22: Get 10 singatures on your scarf</div></td>
-<td id="q22" onclick="QuestionOK(this ,22);"><div class="content">23: task 23</div></td>
-<td id="q23" onclick="QuestionOK(this ,23);"><div class="content">24: Eat a korean dish</div></td>
-<td id="q24" onclick="QuestionOK(this ,24);"><div class="content">25: Play a game with somone you dont know</div></td>
 </tr>
 </table>
 

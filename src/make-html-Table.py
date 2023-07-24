@@ -110,7 +110,7 @@ function toggleTasks(no){
 
 // #### Function to load completed tasks - called later: ####        
 function loadCompletedTasks(){
-  for (var i = 0; i < 25;i++){
+  for (var i = 0; i < 16;i++){
     if (completedTASKS[i]==1){    
       document.getElementById("q"+i).classList.toggle("completed");
     }
@@ -142,13 +142,13 @@ f.write("""
 
 # Skrver tabellen:
 f.write("<table>\n")
-for x in range(5):
+for x in range(4):
     f.write("\n<tr>\n")
-    for y in range(5):
-      f.write(f"<td id=\"q{x*5+y}\" ")
-      f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\">")
+    for y in range(4):
+      f.write(f"<td id=\"q{x*4+y}\" ")
+      f.write(f"onclick=\"QuestionOK(this ,{x*4+y});\">")
       f.write("<div class=\"content\">")
-      f.write(f"{x*5+y+1}: {tasks[x*5+y]}")
+      f.write(f"{x*4+y+1}: {tasks[x*4+y]}")
       f.write("</div></td>\n")
     f.write("</tr>\n")
 f.write("</table>\n")

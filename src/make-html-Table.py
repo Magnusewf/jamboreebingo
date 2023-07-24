@@ -11,40 +11,12 @@ f.write("""<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        
 <html>
-<head><title>Jamboree Bingo</title></head>
-<body>
-<h1 class = "title">Jamboree Bingo</h1>
-</body>        
+<head>
+<title>Jamboree Bingo</title>
 """)
 
 # Add ccs style to the file:
 f.write("""
-<style>
-  .content {
-    position: relative;
-    display: inline-block;
-    border-bottom: 1px dotted black;
-  }
-  .content .tooltiptext {
-    visibility: hidden;
-    width: 120px;
-    background-color: rgb(248, 233, 210);
-    color: black;
-    text-align: center;
-    border-radius: 6px;
-    padding: 5px 0;
-    
-    /* Position the tooltip */
-    position: absolute;
-    z-index: 1;
-    top: 100%;
-    left: 50%;
-    margin-left: -60px;
-  }
-  .content:hover .tooltiptext {
-    visibility: visible;
-  }
-</style>
 <style>
 h1{
   text-align: center;
@@ -53,17 +25,12 @@ h1{
 body {
   background: beige;
 }
+
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
 }       
-.completed {
-  background-color: rgb(67, 105, 67);
-  color: beige;
-  text-decoration: line-through;
-}
-
 table {
   width: min(90%, 600px);
   table-layout: fixed;
@@ -71,11 +38,41 @@ table {
   margin-right: auto;
 }
 td .content {
-  text-align: center;
-  
+  text-align: center;  
   aspect-ratio: 1 / 1 ;
-  
 }  
+.completed {
+  background-color: rgb(67, 105, 67);
+  color: beige;
+  text-decoration: line-through;
+}
+
+/* Style for tooltips: */
+.content {
+  position: relative;
+  display: inline-block;
+  border-bottom: 1px dotted black;
+}
+.content .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(248, 233, 210);
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  
+  /* Position the tooltip */
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+.content:hover .tooltiptext {
+  visibility: visible;
+}
+        
 </style>       
 """)
 
@@ -142,8 +139,15 @@ function loadCompletedTasks(){
   } 
 }        
 
-</script>    
-           
+</script>               
+""")
+
+
+f.write("""        
+</head>
+<body>
+<h1 class = "title">Jamboree Bingo</h1>
+</body>        
 """)
 
 # Skrver tabellen:

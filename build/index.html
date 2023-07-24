@@ -1,22 +1,10 @@
-#### Read "bingo_tasks.txt" into a list ####
-f = open("bingo_tasks.txt", "r")
-tasks = f.read().split("\n")
-f.close()
-
-#### Make basic bingo table i html format ####
-f = open("build/index.html", "w")
-
-# Add html header to the file:
-f.write("""<!doctype html>
+<!doctype html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />        
 <html>
 <head>
 <title>Jamboree Bingo</title>
-""")
 
-# Add ccs style to the file:
-f.write("""
 <style>
 h1{
   text-align: center;
@@ -49,14 +37,7 @@ td .content {
 
         
 </style>       
-""")
-
-completedTASKSarray="0"
-for x in range(24):
-   completedTASKSarray+=",0"
-
-# Add javascript to the file:
-f.write("""        
+        
 <script>
 // #### Basic cookie functions: ####
 function setCookie(cname, cvalue, exdays) {
@@ -86,9 +67,7 @@ if (getCookie("completedTASK") != "") {
   var completedTASKS = JSON.parse(getCookie("completedTASK"));
  }
 else {
-  var completedTASKS = [""")
-f.write(completedTASKSarray)
-f.write("""]; 
+  var completedTASKS = [0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]; 
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }        
         
@@ -118,10 +97,7 @@ function loadCompletedTasks(){
 }        
 
 </script>               
-""")
-
-# Add google analytics to the file:
-f.write("""        
+        
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-0DFLEGP48P"></script>
 <script>
@@ -131,31 +107,54 @@ f.write("""
 
   gtag('config', 'G-0DFLEGP48P');
 </script>
-""")
-
-f.write("""        
+        
 </head>
 <body>
 <h1 class = "title">Jamboree Bingo</h1>
 </body>        
-""")
+<table>
 
-# Skrver tabellen:
-f.write("<table>\n")
-for x in range(5):
-    f.write("\n<tr>\n")
-    for y in range(5):
-      f.write(f"<td id=\"q{x*5+y}\" ")
-      f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\">")
-      f.write("<div class=\"content\">")
-      f.write(f"{x*5+y+1}: {tasks[x*5+y]}")
-      f.write("</div></td>\n")
-    f.write("</tr>\n")
-f.write("</table>\n")
+<tr>
+<td id="q0" onclick="QuestionOK(this ,0);"><div class="content">1: task 1</div></td>
+<td id="q1" onclick="QuestionOK(this ,1);"><div class="content">2: Talk to people from 5 diffrent countries</div></td>
+<td id="q2" onclick="QuestionOK(this ,2);"><div class="content">3: Learn 5 korean words and use them</div></td>
+<td id="q3" onclick="QuestionOK(this ,3);"><div class="content">4: task 4</div></td>
+<td id="q4" onclick="QuestionOK(this ,4);"><div class="content">5: task 5</div></td>
+</tr>
 
+<tr>
+<td id="q5" onclick="QuestionOK(this ,5);"><div class="content">6: Tie your self to somone you dont know for half an hour</div></td>
+<td id="q6" onclick="QuestionOK(this ,6);"><div class="content">7: Learn 5 new facts about korea</div></td>
+<td id="q7" onclick="QuestionOK(this ,7);"><div class="content">8: task 8</div></td>
+<td id="q8" onclick="QuestionOK(this ,8);"><div class="content">9: Learn a cool fact about scouting in other countries</div></td>
+<td id="q9" onclick="QuestionOK(this ,9);"><div class="content">10: Join somones bondfire  </div></td>
+</tr>
 
-# Add ccs style to the file:
-f.write("""
+<tr>
+<td id="q10" onclick="QuestionOK(this ,10);"><div class="content">11: task 11</div></td>
+<td id="q11" onclick="QuestionOK(this ,11);"><div class="content">12: task 12</div></td>
+<td id="q12" onclick="QuestionOK(this ,12);"><div class="content">13: Get 3 more to do the bingo</div></td>
+<td id="q13" onclick="QuestionOK(this ,13);"><div class="content">14: Invite somone to your bondfire</div></td>
+<td id="q14" onclick="QuestionOK(this ,14);"><div class="content">15: task 15</div></td>
+</tr>
+
+<tr>
+<td id="q15" onclick="QuestionOK(this ,15);"><div class="content">16: Make a new friend</div></td>
+<td id="q16" onclick="QuestionOK(this ,16);"><div class="content">17: task 17</div></td>
+<td id="q17" onclick="QuestionOK(this ,17);"><div class="content">18: Telll somone a joke </div></td>
+<td id="q18" onclick="QuestionOK(this ,18);"><div class="content">19: task 19</div></td>
+<td id="q19" onclick="QuestionOK(this ,19);"><div class="content">20: task 20</div></td>
+</tr>
+
+<tr>
+<td id="q20" onclick="QuestionOK(this ,20);"><div class="content">21: Play a koran game</div></td>
+<td id="q21" onclick="QuestionOK(this ,21);"><div class="content">22: Get 10 singatures on your scarf</div></td>
+<td id="q22" onclick="QuestionOK(this ,22);"><div class="content">23: task 23</div></td>
+<td id="q23" onclick="QuestionOK(this ,23);"><div class="content">24: Eat a korean dish</div></td>
+<td id="q24" onclick="QuestionOK(this ,24);"><div class="content">25: Play a game with somone you dont know</div></td>
+</tr>
+</table>
+
         
 <script>
 loadCompletedTasks();
@@ -164,7 +163,3 @@ loadCompletedTasks();
 <footer>
 </footer>
 </html>
-""")
-
-# Close the file:
-f.close()

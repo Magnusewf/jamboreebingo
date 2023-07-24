@@ -15,6 +15,18 @@ f.write("""<!doctype html>
 <title>Jamboree Bingo</title>
 """)
 
+# Add google analytics to the file:
+f.write("""        
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DFLEGP48P"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-0DFLEGP48P');
+</script>
+""")
+
 # Add ccs style to the file:
 f.write("""
 <style>
@@ -145,18 +157,6 @@ function loadCompletedTasks(){
 </script>               
 """)
 
-# Add google analytics to the file:
-f.write("""        
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-0DFLEGP48P"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-0DFLEGP48P');
-</script>
-""")
-
 f.write("""        
 </head>
 <body>
@@ -189,9 +189,8 @@ loadCompletedTasks();
   <h3>Share:</h3>
   <span class="tooltiptext""><img src="qr-code-github-jamboreebingo.png"></span>
 </div>
-        
-<footer>
-</footer>
+
+</body>        
 </html>
 """)
 

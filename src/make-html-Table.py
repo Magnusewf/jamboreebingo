@@ -32,7 +32,7 @@ table, th, td {
   padding: 10px;
 }       
 table {
-  width: min(90%, 600px);
+  width: min(98%, 600px);
   table-layout: fixed;
   margin-left: auto; 
   margin-right: auto;

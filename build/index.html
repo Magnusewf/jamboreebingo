@@ -6,21 +6,23 @@
 <title>Jamboree Bingo</title>
 
 <style>
-h1{
-  text-align: center;
-  color: rgba(0, 0, 0, 0.716)
-}
 body {
   background: beige;
 }
-
+h1{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.716);
+}
+h2{
+  font-size: smaller;
+}
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
 }       
 table {
-  width: min(98%, 600px);
+  width: min(98%, 400px);
   table-layout: fixed;
   margin-left: auto; 
   margin-right: auto;
@@ -36,6 +38,28 @@ td .content {
   text-decoration: line-through;
 }
 
+/* Style for tooltips: */
+.shareqr {
+  text-align: center;
+  position: relative;
+}
+.shareqr .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(248, 233, 210);
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+.shareqr:hover .tooltiptext {
+  visibility: visible;
+}        
         
 </style>       
         
@@ -105,7 +129,6 @@ function loadCompletedTasks(){
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-0DFLEGP48P');
 </script>
         
@@ -116,31 +139,31 @@ function loadCompletedTasks(){
 <table>
 
 <tr>
-<td id="q0" onclick="QuestionOK(this ,0);"><div class="content">1: Talk to people from 5 diffrent countries</div></td>
-<td id="q1" onclick="QuestionOK(this ,1);"><div class="content">2: Learn 5 korean words and use them</div></td>
-<td id="q2" onclick="QuestionOK(this ,2);"><div class="content">3: Learn hallo in 4 languages</div></td>
-<td id="q3" onclick="QuestionOK(this ,3);"><div class="content">4: Tie your self to somone you dont know for 30 min</div></td>
+<td id="q0" onclick="QuestionOK(this ,0);"><div class="content">Talk to people from five different countries</div></td>
+<td id="q1" onclick="QuestionOK(this ,1);"><div class="content">Learn five Korean words and use them</div></td>
+<td id="q2" onclick="QuestionOK(this ,2);"><div class="content">Learn hallo in four languages</div></td>
+<td id="q3" onclick="QuestionOK(this ,3);"><div class="content">Tie yourself to someone you don’t know for 30 min</div></td>
 </tr>
 
 <tr>
-<td id="q4" onclick="QuestionOK(this ,4);"><div class="content">5: Learn 5 new facts about korea</div></td>
-<td id="q5" onclick="QuestionOK(this ,5);"><div class="content">6: Learn a fact about scouting in another country</div></td>
-<td id="q6" onclick="QuestionOK(this ,6);"><div class="content">7: Thank somone working at the camp</div></td>
-<td id="q7" onclick="QuestionOK(this ,7);"><div class="content">8: Get 3 more to do the bingo</div></td>
+<td id="q4" onclick="QuestionOK(this ,4);"><div class="content">Learn five new facts about Korea</div></td>
+<td id="q5" onclick="QuestionOK(this ,5);"><div class="content">Learn a fact about scouting in another country</div></td>
+<td id="q6" onclick="QuestionOK(this ,6);"><div class="content">Thank someone working at the camp</div></td>
+<td id="q7" onclick="QuestionOK(this ,7);"><div class="content">Get three more to do the bingo</div></td>
 </tr>
 
 <tr>
-<td id="q8" onclick="QuestionOK(this ,8);"><div class="content">9: Invite somone to your bondfire</div></td>
-<td id="q9" onclick="QuestionOK(this ,9);"><div class="content">10: Make a new friend</div></td>
-<td id="q10" onclick="QuestionOK(this ,10);"><div class="content">11: Learn a new game</div></td>
-<td id="q11" onclick="QuestionOK(this ,11);"><div class="content">12: Tell somone a joke</div></td>
+<td id="q8" onclick="QuestionOK(this ,8);"><div class="content">Invite someone to your bonfire</div></td>
+<td id="q9" onclick="QuestionOK(this ,9);"><div class="content">Make a new friend</div></td>
+<td id="q10" onclick="QuestionOK(this ,10);"><div class="content">Learn a new game</div></td>
+<td id="q11" onclick="QuestionOK(this ,11);"><div class="content">Tell someone a joke</div></td>
 </tr>
 
 <tr>
-<td id="q12" onclick="QuestionOK(this ,12);"><div class="content">13: Get 10 singatures on your scarf</div></td>
-<td id="q13" onclick="QuestionOK(this ,13);"><div class="content">14: Eat a korean dish</div></td>
-<td id="q14" onclick="QuestionOK(this ,14);"><div class="content">15: Play a game with somone you dont know</div></td>
-<td id="q15" onclick="QuestionOK(this ,15);"><div class="content">16: Join somones bondfire</div></td>
+<td id="q12" onclick="QuestionOK(this ,12);"><div class="content">Get ten signatures on your scarf</div></td>
+<td id="q13" onclick="QuestionOK(this ,13);"><div class="content">Eat a Korean dish</div></td>
+<td id="q14" onclick="QuestionOK(this ,14);"><div class="content">Play a game with someone you don’t know</div></td>
+<td id="q15" onclick="QuestionOK(this ,15);"><div class="content">Join someone’s bonfire</div></td>
 </tr>
 </table>
 
@@ -148,7 +171,12 @@ function loadCompletedTasks(){
 <script>
 loadCompletedTasks();
 </script>
-              
+ 
+<div class="shareqr">
+  <h3>Share:</h3>
+  <span class="tooltiptext""><img src="qr-code-github-jamboreebingo.png"></span>
+</div>
+        
 <footer>
 </footer>
 </html>

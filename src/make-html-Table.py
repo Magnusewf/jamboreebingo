@@ -18,21 +18,23 @@ f.write("""<!doctype html>
 # Add ccs style to the file:
 f.write("""
 <style>
-h1{
-  text-align: center;
-  color: rgba(0, 0, 0, 0.716)
-}
 body {
   background: beige;
 }
-
+h1{
+  text-align: center;
+  color: rgba(0, 0, 0, 0.716);
+}
+h2{
+  font-size: smaller;
+}
 table, th, td {
   border: 1px solid black;
   border-collapse: collapse;
   padding: 10px;
 }       
 table {
-  width: min(98%, 600px);
+  width: min(98%, 400px);
   table-layout: fixed;
   margin-left: auto; 
   margin-right: auto;
@@ -48,6 +50,28 @@ td .content {
   text-decoration: line-through;
 }
 
+/* Style for tooltips: */
+.shareqr {
+  text-align: center;
+  position: relative;
+}
+.shareqr .tooltiptext {
+  visibility: hidden;
+  width: 120px;
+  background-color: rgb(248, 233, 210);
+  color: black;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px 0;
+  position: absolute;
+  z-index: 1;
+  top: 100%;
+  left: 50%;
+  margin-left: -60px;
+}
+.shareqr:hover .tooltiptext {
+  visibility: visible;
+}        
         
 </style>       
 """)
@@ -129,7 +153,6 @@ f.write("""
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-0DFLEGP48P');
 </script>
 """)
@@ -149,7 +172,7 @@ for x in range(4):
       f.write(f"<td id=\"q{x*4+y}\" ")
       f.write(f"onclick=\"QuestionOK(this ,{x*4+y});\">")
       f.write("<div class=\"content\">")
-      f.write(f"{x*4+y+1}: {tasks[x*4+y]}")
+      f.write(f"{tasks[x*4+y]}")
       f.write("</div></td>\n")
     f.write("</tr>\n")
 f.write("</table>\n")
@@ -161,7 +184,12 @@ f.write("""
 <script>
 loadCompletedTasks();
 </script>
-              
+ 
+<div class="shareqr">
+  <h3>Share:</h3>
+  <span class="tooltiptext""><img src="qr-code-github-jamboreebingo.png"></span>
+</div>
+        
 <footer>
 </footer>
 </html>

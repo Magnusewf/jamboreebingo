@@ -129,6 +129,9 @@ function QuestionOK(question,num){
   }
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }
+function toggleTasks(no){
+  document.getElementById("q"+no).classList.toggle("completed");
+}       
 
 // #### Function to load completed tasks - called later: ####        
 function loadCompletedTasks(){
@@ -156,10 +159,12 @@ for x in range(5):
     f.write("\n<tr>\n")
     for y in range(5):
       f.write(f"<td id=\"q{x*5+y}\" ")
-      f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\"")
+      #f.write(f"onclick=\"QuestionOK(this ,{x*5+y});\"")
       f.write("><div class=\"content\">")
       f.write(f"Task {x*5+y+1}")
-      f.write(f"<span class=\"tooltiptext\">{tasks[x*5+y]}</span>")
+      f.write(f"<span class=\"tooltiptext\" ")
+      f.write(f"onclick=\"toggleTasks({x*5+y});\">")
+      f.write(f"[ {tasks[x*5+y]} ]</span>")
       f.write("</div></td>\n")
     f.write("</tr>\n")
 f.write("</table>\n")

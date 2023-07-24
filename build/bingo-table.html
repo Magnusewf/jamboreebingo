@@ -28,6 +28,7 @@ table {
 td .content {
   text-align: center;  
   aspect-ratio: 1 / 1 ;
+  border-bottom: 1px dotted black;
 }  
 .completed {
   background-color: rgb(67, 105, 67);
@@ -39,7 +40,6 @@ td .content {
 .content {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
 }
 .content .tooltiptext {
   visibility: hidden;
@@ -108,6 +108,9 @@ function QuestionOK(question,num){
   }
   setCookie("completedTASK", JSON.stringify(completedTASKS), 400);
 }
+function toggleTasks(no){
+  document.getElementById("q"+no).classList.toggle("completed");
+}       
 
 // #### Function to load completed tasks - called later: ####        
 function loadCompletedTasks(){
@@ -127,43 +130,43 @@ function loadCompletedTasks(){
 <table>
 
 <tr>
-<td id="q0" onclick="QuestionOK(this ,0);"><div class="content">Task 1<span class="tooltiptext">task 1</span></div></td>
-<td id="q1" onclick="QuestionOK(this ,1);"><div class="content">Task 2<span class="tooltiptext">Talk to people from 5 diffrent countries</span></div></td>
-<td id="q2" onclick="QuestionOK(this ,2);"><div class="content">Task 3<span class="tooltiptext">Learn 5 korean words and use them</span></div></td>
-<td id="q3" onclick="QuestionOK(this ,3);"><div class="content">Task 4<span class="tooltiptext">task 4</span></div></td>
-<td id="q4" onclick="QuestionOK(this ,4);"><div class="content">Task 5<span class="tooltiptext">task 5</span></div></td>
+<td id="q0" ><div class="content">Task 1<span class="tooltiptext" onclick="toggleTasks(0);">[ task 1 ]</span></div></td>
+<td id="q1" ><div class="content">Task 2<span class="tooltiptext" onclick="toggleTasks(1);">[ Talk to people from 5 diffrent countries ]</span></div></td>
+<td id="q2" ><div class="content">Task 3<span class="tooltiptext" onclick="toggleTasks(2);">[ Learn 5 korean words and use them ]</span></div></td>
+<td id="q3" ><div class="content">Task 4<span class="tooltiptext" onclick="toggleTasks(3);">[ task 4 ]</span></div></td>
+<td id="q4" ><div class="content">Task 5<span class="tooltiptext" onclick="toggleTasks(4);">[ task 5 ]</span></div></td>
 </tr>
 
 <tr>
-<td id="q5" onclick="QuestionOK(this ,5);"><div class="content">Task 6<span class="tooltiptext">Tie your self to somone you dont know for half an hour</span></div></td>
-<td id="q6" onclick="QuestionOK(this ,6);"><div class="content">Task 7<span class="tooltiptext">Learn 5 new facts about korea</span></div></td>
-<td id="q7" onclick="QuestionOK(this ,7);"><div class="content">Task 8<span class="tooltiptext">task 8</span></div></td>
-<td id="q8" onclick="QuestionOK(this ,8);"><div class="content">Task 9<span class="tooltiptext">Learn a cool fact about scouting in other countries</span></div></td>
-<td id="q9" onclick="QuestionOK(this ,9);"><div class="content">Task 10<span class="tooltiptext">Join somones bondfire  </span></div></td>
+<td id="q5" ><div class="content">Task 6<span class="tooltiptext" onclick="toggleTasks(5);">[ Tie your self to somone you dont know for half an hour ]</span></div></td>
+<td id="q6" ><div class="content">Task 7<span class="tooltiptext" onclick="toggleTasks(6);">[ Learn 5 new facts about korea ]</span></div></td>
+<td id="q7" ><div class="content">Task 8<span class="tooltiptext" onclick="toggleTasks(7);">[ task 8 ]</span></div></td>
+<td id="q8" ><div class="content">Task 9<span class="tooltiptext" onclick="toggleTasks(8);">[ Learn a cool fact about scouting in other countries ]</span></div></td>
+<td id="q9" ><div class="content">Task 10<span class="tooltiptext" onclick="toggleTasks(9);">[ Join somones bondfire   ]</span></div></td>
 </tr>
 
 <tr>
-<td id="q10" onclick="QuestionOK(this ,10);"><div class="content">Task 11<span class="tooltiptext">task 11</span></div></td>
-<td id="q11" onclick="QuestionOK(this ,11);"><div class="content">Task 12<span class="tooltiptext">task 12</span></div></td>
-<td id="q12" onclick="QuestionOK(this ,12);"><div class="content">Task 13<span class="tooltiptext">Get 3 more to do the bingo</span></div></td>
-<td id="q13" onclick="QuestionOK(this ,13);"><div class="content">Task 14<span class="tooltiptext">Invite somone to your bondfire</span></div></td>
-<td id="q14" onclick="QuestionOK(this ,14);"><div class="content">Task 15<span class="tooltiptext">task 15</span></div></td>
+<td id="q10" ><div class="content">Task 11<span class="tooltiptext" onclick="toggleTasks(10);">[ task 11 ]</span></div></td>
+<td id="q11" ><div class="content">Task 12<span class="tooltiptext" onclick="toggleTasks(11);">[ task 12 ]</span></div></td>
+<td id="q12" ><div class="content">Task 13<span class="tooltiptext" onclick="toggleTasks(12);">[ Get 3 more to do the bingo ]</span></div></td>
+<td id="q13" ><div class="content">Task 14<span class="tooltiptext" onclick="toggleTasks(13);">[ Invite somone to your bondfire ]</span></div></td>
+<td id="q14" ><div class="content">Task 15<span class="tooltiptext" onclick="toggleTasks(14);">[ task 15 ]</span></div></td>
 </tr>
 
 <tr>
-<td id="q15" onclick="QuestionOK(this ,15);"><div class="content">Task 16<span class="tooltiptext">Make a new friend</span></div></td>
-<td id="q16" onclick="QuestionOK(this ,16);"><div class="content">Task 17<span class="tooltiptext">task 17</span></div></td>
-<td id="q17" onclick="QuestionOK(this ,17);"><div class="content">Task 18<span class="tooltiptext">Telll somone a joke </span></div></td>
-<td id="q18" onclick="QuestionOK(this ,18);"><div class="content">Task 19<span class="tooltiptext">task 19</span></div></td>
-<td id="q19" onclick="QuestionOK(this ,19);"><div class="content">Task 20<span class="tooltiptext">task 20</span></div></td>
+<td id="q15" ><div class="content">Task 16<span class="tooltiptext" onclick="toggleTasks(15);">[ Make a new friend ]</span></div></td>
+<td id="q16" ><div class="content">Task 17<span class="tooltiptext" onclick="toggleTasks(16);">[ task 17 ]</span></div></td>
+<td id="q17" ><div class="content">Task 18<span class="tooltiptext" onclick="toggleTasks(17);">[ Telll somone a joke  ]</span></div></td>
+<td id="q18" ><div class="content">Task 19<span class="tooltiptext" onclick="toggleTasks(18);">[ task 19 ]</span></div></td>
+<td id="q19" ><div class="content">Task 20<span class="tooltiptext" onclick="toggleTasks(19);">[ task 20 ]</span></div></td>
 </tr>
 
 <tr>
-<td id="q20" onclick="QuestionOK(this ,20);"><div class="content">Task 21<span class="tooltiptext">Play a koran game</span></div></td>
-<td id="q21" onclick="QuestionOK(this ,21);"><div class="content">Task 22<span class="tooltiptext">Get 10 singatures on your scarf</span></div></td>
-<td id="q22" onclick="QuestionOK(this ,22);"><div class="content">Task 23<span class="tooltiptext">task 23</span></div></td>
-<td id="q23" onclick="QuestionOK(this ,23);"><div class="content">Task 24<span class="tooltiptext">Eat a korean dish</span></div></td>
-<td id="q24" onclick="QuestionOK(this ,24);"><div class="content">Task 25<span class="tooltiptext">Play a game with somone you dont know</span></div></td>
+<td id="q20" ><div class="content">Task 21<span class="tooltiptext" onclick="toggleTasks(20);">[ Play a koran game ]</span></div></td>
+<td id="q21" ><div class="content">Task 22<span class="tooltiptext" onclick="toggleTasks(21);">[ Get 10 singatures on your scarf ]</span></div></td>
+<td id="q22" ><div class="content">Task 23<span class="tooltiptext" onclick="toggleTasks(22);">[ task 23 ]</span></div></td>
+<td id="q23" ><div class="content">Task 24<span class="tooltiptext" onclick="toggleTasks(23);">[ Eat a korean dish ]</span></div></td>
+<td id="q24" ><div class="content">Task 25<span class="tooltiptext" onclick="toggleTasks(24);">[ Play a game with somone you dont know ]</span></div></td>
 </tr>
 </table>
 
